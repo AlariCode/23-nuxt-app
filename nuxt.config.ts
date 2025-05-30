@@ -2,6 +2,12 @@
 export default defineNuxtConfig({
 	compatibilityDate: '2025-05-15',
 	devtools: { enabled: true },
+	runtimeConfig: {
+		token: "",
+		public: {
+			apiurl: ""
+		}
+	},
 	modules: [
 		'@nuxt/eslint',
 		'@nuxt/fonts',

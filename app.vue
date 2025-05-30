@@ -2,7 +2,8 @@
 import { SharedTestComp } from "#components";
 
 const config = useAppConfig();
-const hello = ref(config.theme.mainColor);
+const runtime = useRuntimeConfig();
+const hello = ref(runtime.public.apiurl);
 </script>
 
 <template>
