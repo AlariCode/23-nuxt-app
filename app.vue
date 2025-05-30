@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { SharedTestComp } from "#components";
 
-const hello = ref("hello");
+const config = useAppConfig();
+const hello = ref(config.theme.mainColor);
 </script>
 
 <template>
