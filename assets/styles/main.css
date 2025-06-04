@@ -1,5 +1,11 @@
 :root {
 	--font: "Roboto", sans-serif;
+	--color-accent: #A18A68;
+	--color-black: #000000;
+	--color-black-hover: #222222;
+	--color-dark-gray: #707070;
+	--color-gray: #D8D8D8;;
+	--color-white-light: #FFFFFF;
 }
 
 body {
