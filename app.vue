@@ -1,11 +1,5 @@
 <script setup lang="ts">
-throw createError({
-  statusCode: 401,
-  statusMessage: "Недоступна страница без авторизации",
-  data: {
-    userId: 1,
-  },
-});
+import "~/assets/styles/main.css";
 </script>
 
 <template>
