@@ -5,22 +5,24 @@ const { color = "primary" } = defineProps<{
 </script>
 
 <template>
-  <button :class="color">
+  <button class="button" :class="color">
     <slot />
   </button>
 </template>
 
 <style scoped>
-.primary {
+.button {
   border-radius: 4px;
   border: 1px solid var(--color-black);
-  background: var(--color-black);
   cursor: pointer;
   padding: 16px;
-  font-family: var(--font);
-  color: var(--color-white-light);
   font-size: 16px;
   font-weight: 700;
+}
+.primary {
+  background: var(--color-black);
+  font-family: var(--font);
+  color: var(--color-white-light);
 }
 
 .primary:hover {
@@ -28,14 +30,9 @@ const { color = "primary" } = defineProps<{
 }
 
 .ghost {
-  border-radius: 4px;
-  border: 1px solid var(--color-black);
-  cursor: pointer;
-  padding: 16px;
+  background: var(--color-white-light);
   font-family: var(--font);
   color: var(--color-black);
-  font-size: 16px;
-  font-weight: 700;
 }
 
 .ghost:hover {
