@@ -1,3 +1,3 @@
 <template>
-  <div>Post</div>
+  <div>Restore</div>
 </template>

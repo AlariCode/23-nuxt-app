@@ -1,3 +1,3 @@
 <template>
-  <div>Blog</div>
+  <div>Login</div>
 </template>
