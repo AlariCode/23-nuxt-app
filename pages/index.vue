@@ -9,6 +9,7 @@ function openAbout() {
   <div>
     Index
     <IconTwitter />
+    <Icon name="icons:twitter" />
     <NuxtLink to="/about">About</NuxtLink>
     <button @click="openAbout">Перейти</button>
     <InputField variant="black" placeholder="Введите ваш email для подписки" />
