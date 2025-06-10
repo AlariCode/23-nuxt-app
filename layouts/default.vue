@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>Шапка</div>
+    <LayoutHeader />
     <slot />
     <LayoutFooter />
   </div>
