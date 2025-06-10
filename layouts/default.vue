@@ -2,6 +2,6 @@
   <div>
     <div>Шапка</div>
     <slot />
-    <div>Подвал</div>
+    <LayoutFooter />
   </div>
 </template>
