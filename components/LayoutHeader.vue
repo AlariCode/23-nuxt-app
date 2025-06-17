@@ -48,16 +48,18 @@ function increase() {
   justify-content: space-between;
   margin-top: 48px;
   border-bottom: 1px solid var(--color-gray);
-}
-.header__content {
-  display: flex;
-  gap: 60px;
-  align-items: center;
-}
-.header__menu {
-  display: flex;
-  gap: 60px;
-  align-items: center;
+
+  &__content {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+  }
+
+  &__menu {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+  }
 }
 
 .header__menu a {
