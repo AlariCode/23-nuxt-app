@@ -5,15 +5,19 @@ const config = useRuntimeConfig();
 const API_URL = config.public.apiurl;
 const input = ref("");
 
-const { data, error, refresh } = await useFetch<GetCategoriesResponse>(
-  API_URL + "/categories",
+const { data, error, refresh } = await useAsyncData<GetCategoriesResponse>(
+  "categories",
+  () => $fetch(API_URL + "/categories"),
   {
-    method: "POST",
-    body: input,
-    immediate: false,
-    watch: false,
+    watch: [input],
   }
 );
+
+// $fetch - не SSR friendly, используем не на верхнем
+// useFetch - используем только на верхнем, SSR friendly
+// useAsyncData - SSR friendly, нужен если сложные вариант получения данных
+
+// API_URL + "/categories",
 
 console.log(data.value);
 console.log(error.value);
