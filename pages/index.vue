@@ -2,7 +2,6 @@
 function openAbout() {
   navigateTo({ path: "/about" });
 }
-console.log("index");
 </script>
 
 <template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { GetCategoriesResponse } from "~/interfaces/category.interface";
-import type { Product } from "~/interfaces/product.interface";
+import type { GetProductsResponse } from "~/interfaces/product.interface";
 
 const config = useRuntimeConfig();
 const API_URL = config.public.apiurl;
@@ -20,30 +20,15 @@ const categoriesSelect = computed(() => {
     : [selectDefault];
 });
 
-const product: Product = {
-  id: 1,
-  name: "Lira Earrings",
-  price: 20,
-  short_description: "Элегантные золотистые серьги-кольца",
-  long_description:
-    "Отлично подойдут к любому гардеробу. Чистое золото высокой пробы, которое не оставит вас равнодушными к качеству изделия.",
-  sku: "12",
-  discount: 0,
-  images: [
-    "/images/jewelry/lira1.jpg",
-    "/images/jewelry/lira2.jpg",
-    "/images/jewelry/lira3.jpg",
-    "/images/jewelry/lira4.jpg",
-  ],
-  category_id: 1,
-  category: {
-    id: 1,
-    name: "Серьги",
-    alias: "earrings",
-  },
-  created_at: new Date(),
-  updated_at: new Date(),
-};
+const { data: productsData } = await useFetch<GetProductsResponse>(
+  API_URL + "/products",
+  {
+    query: {
+      limit: 20,
+      offset: 0,
+    },
+  }
+);
 </script>
 
 <template>
@@ -53,8 +38,12 @@ const product: Product = {
       <div class="catalog__filter">
         <SelectField v-model="select" :options="categoriesSelect" />
       </div>
-      <div>
-        <CatalogCard v-bind="product" />
+      <div class="catalog__grid">
+        <CatalogCard
+          v-for="product in productsData?.products"
+          :key="product.id"
+          v-bind="product"
+        />
       </div>
     </div>
   </div>
@@ -67,5 +56,11 @@ const product: Product = {
 }
 .catalog__filter {
   width: 260px;
+}
+.catalog__grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px 12px;
 }
 </style>

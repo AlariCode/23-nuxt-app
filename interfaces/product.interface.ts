@@ -14,3 +14,11 @@ export interface Product {
 	created_at: Date;
 	updated_at: Date;
 }
+
+
+export interface GetProductsResponse {
+	products: Product[];
+	total: number;
+	limit: number;
+	offset: number;
+}

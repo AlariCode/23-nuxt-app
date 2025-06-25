@@ -1,19 +1,6 @@
-<script lang="ts" setup>
-const counter = ref(0);
-console.log("Setup");
-onMounted(() => {
-  console.log("onMounted");
-});
-
-function increase() {
-  counter.value++;
-}
-</script>
-
 <template>
-  <div class="header" @click="increase">
+  <div class="header">
     <NuxtLink to="/">
-      {{ counter }}
       <IconLogo />
     </NuxtLink>
     <div class="header__content">
@@ -42,6 +29,7 @@ function increase() {
 
 <style scoped>
 .header {
+  padding: 0 16px;
   margin: 0 auto;
   max-width: 1248px;
   display: flex;
