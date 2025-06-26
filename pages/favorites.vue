@@ -1,3 +1,8 @@
+<script setup lang="ts">
+const favoriteStore = useFavoritesStore();
+favoriteStore.addToFavorite(1);
+</script>
+
 <template>
-  <div>Favorites</div>
+  <div>{{ favoriteStore.favoriteIds[0] }}</div>
 </template>
