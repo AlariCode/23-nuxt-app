@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useDebounceFn } from "@vueuse/core";
 import type { GetCategoriesResponse } from "~/interfaces/category.interface";
 import type { GetProductsResponse } from "~/interfaces/product.interface";
 
@@ -9,11 +10,15 @@ const router = useRouter();
 const category_id = ref(route.query.category_id?.toString() ?? "");
 const search = ref(route.query.search?.toString() ?? "");
 
-watchEffect(() => {
+watch([category_id, search], () => {
+  changeRoute(category_id, search);
+});
+
+const changeRoute = useDebounceFn((category_id, search) => {
   router.replace({
     query: { category_id: category_id.value, search: search.value },
   });
-});
+}, 100);
 
 const query = computed(() => ({
   limit: route.query.limit ?? 20,
