@@ -11,8 +11,8 @@ export interface Product {
 	images: string[];
 	category_id: number;
 	category: Category;
-	created_at: Date;
-	updated_at: Date;
+	created_at: string;
+	updated_at: string;
 }
 
 
