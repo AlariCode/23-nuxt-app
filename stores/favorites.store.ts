@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia';
-import type { GetCategoriesResponse } from '~/interfaces/category.interface';
 
 export const useFavoritesStore = defineStore('favorites', () => {
 	const favoriteIds = ref<number[]>([]);
@@ -14,10 +13,18 @@ export const useFavoritesStore = defineStore('favorites', () => {
 		favoriteIds.value = favoriteIds.value.filter(item => item != id);
 	}
 
-	async function fetchFavorites() {
-		const data = await $fetch<GetCategoriesResponse>("http://localhost:3000/api/categories");
-		favoriteIds.value = data.categories.map(c => c.id)
+	function isFavorite(id: number) {
+		return favoriteIds.value.find(f => f == id);
 	}
 
-	return { favoriteIds, addToFavorite, removeFromFavorite, fetchFavorites }
+	function toggleFavorite(id: number) {
+		if (!favoriteIds.value.includes(id)) {
+			favoriteIds.value.push(id);
+			return
+		}
+		favoriteIds.value = favoriteIds.value.filter(item => item != id);
+	}
+
+
+	return { favoriteIds, addToFavorite, removeFromFavorite, toggleFavorite, isFavorite }
 });
