@@ -1,15 +1,37 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type { LoginResponse } from "~/interfaces/auth.interface";
+
+const API_URL = useAPI();
+const email = ref<string | undefined>();
+const password = ref<string | undefined>();
+
+async function login() {
+  const data = await $fetch<LoginResponse>(API_URL + "/auth/login", {
+    method: "POST",
+    body: {
+      email: email.value,
+      password: password.value,
+    },
+  });
+  console.log(data);
+}
+</script>
 
 <template>
   <div>
     <h1>Мой аккаунт</h1>
     <form class="login-form">
       <div class="login-form__fields">
-        <InputField variant="gray" placeholder="Email" />
-        <InputField variant="gray" placeholder="Пароль" type="password" />
+        <InputField v-model="email" variant="gray" placeholder="Email" />
+        <InputField
+          v-model="password"
+          variant="gray"
+          placeholder="Пароль"
+          type="password"
+        />
       </div>
       <div class="login-form__actions">
-        <ActionButton>Вход</ActionButton>
+        <ActionButton @click.stop.prevent="login">Вход</ActionButton>
         <NuxtLink to="/auth/restore">Забыли пароль?</NuxtLink>
       </div>
     </form>
