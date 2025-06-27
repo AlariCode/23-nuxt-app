@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const favoriteStore = useFavoritesStore();
-favoriteStore.addToFavorite(1);
+await callOnce("fetchFavorites", () => favoriteStore.fetchFavorites(), {
+  mode: "navigation",
+});
 </script>
 
 <template>
