@@ -3,7 +3,7 @@ function openAbout() {
   navigateTo({ path: "/about" });
 }
 useSeoMeta({
-  title: "Магазин Shoppe",
+  title: "Главная магазина",
   description: "Магазин Shoppe с ювелирными изделиями.",
   ogDescription: "Магазин Shoppe с ювелирными изделиями.",
 });
