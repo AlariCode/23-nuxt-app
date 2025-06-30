@@ -2,11 +2,6 @@
 export default defineNuxtConfig({
 	compatibilityDate: '2025-05-15',
 	devtools: { enabled: true },
-	routeRules: {
-		'/about': { prerender: true },
-		'/': { swr: true },
-		'/catalog/**': { swr: 3600 },
-	},
 	runtimeConfig: {
 		token: "",
 		public: {
