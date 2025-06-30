@@ -36,5 +36,25 @@ export default defineNuxtConfig({
 			}
 		]
 	},
-	modules: ['@nuxt/eslint', '@nuxt/fonts', '@nuxt/image', '@nuxt/scripts', '@nuxt/icon', '@pinia/nuxt', 'pinia-plugin-persistedstate/nuxt']
+	routeRules: {
+		'/catalog': { sitemap: { changefreq: 'daily' } }
+	},
+	sitemap: {
+		sources: ['/api/sitemap/urls'],
+		defaults: {
+			lastmod: new Date().toISOString(),
+			priority: 0.5,
+			changefreq: 'weekly'
+		}
+	},
+	modules: [
+		'@nuxt/eslint',
+		'@nuxt/fonts',
+		'@nuxt/image',
+		'@nuxt/scripts',
+		'@nuxt/icon',
+		'@pinia/nuxt',
+		'pinia-plugin-persistedstate/nuxt',
+		'@nuxtjs/sitemap'
+	]
 })
