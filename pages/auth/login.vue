@@ -15,6 +15,7 @@ async function login() {
     },
   });
   authStore.setToken(data.token);
+  navigateTo("/account");
 }
 </script>
 
