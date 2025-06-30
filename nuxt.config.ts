@@ -1,7 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 	compatibilityDate: '2025-05-15',
-	devtools: { enabled: true },
+	devtools: {
+		enabled: true,
+
+		timeline: {
+			enabled: true
+		}
+	},
 	runtimeConfig: {
 		token: "",
 		public: {
@@ -39,6 +45,9 @@ export default defineNuxtConfig({
 	routeRules: {
 		'/catalog': { sitemap: { changefreq: 'daily' } }
 	},
+	robots: {
+		disallow: ['/account']
+	},
 	sitemap: {
 		sources: ['/api/sitemap/urls'],
 		defaults: {
@@ -55,6 +64,7 @@ export default defineNuxtConfig({
 		'@nuxt/icon',
 		'@pinia/nuxt',
 		'pinia-plugin-persistedstate/nuxt',
-		'@nuxtjs/sitemap'
+		'@nuxtjs/sitemap',
+		'@nuxtjs/robots'
 	]
 })
