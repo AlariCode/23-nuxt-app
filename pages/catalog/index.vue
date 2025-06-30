@@ -3,6 +3,22 @@ import { useDebounceFn } from "@vueuse/core";
 import type { GetCategoriesResponse } from "~/interfaces/category.interface";
 import type { GetProductsResponse } from "~/interfaces/product.interface";
 
+useSeoMeta({
+  title: "Каталог товаров",
+  description: "Каталог товаров магазина Shoppe с ювелирными изделиями.",
+  ogDescription: "Каталог товаров магазина Shoppe с ювелирными изделиями.",
+});
+
+// useHead({
+//   title: "Каталог товаров",
+//   meta: [
+//     {
+//       name: "description",
+//       content: "Каталог товаров магазина Shoppe с ювелирными изделиями.",
+//     },
+//   ],
+// });
+
 const API_URL = useAPI();
 const route = useRoute();
 const router = useRouter();

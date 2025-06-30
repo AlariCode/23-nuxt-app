@@ -2,6 +2,11 @@
 function openAbout() {
   navigateTo({ path: "/about" });
 }
+useSeoMeta({
+  title: "Магазин Shoppe",
+  description: "Магазин Shoppe с ювелирными изделиями.",
+  ogDescription: "Магазин Shoppe с ювелирными изделиями.",
+});
 </script>
 
 <template>
