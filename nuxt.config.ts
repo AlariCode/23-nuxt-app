@@ -20,6 +20,14 @@ export default defineNuxtConfig({
 			'postcss-nested': {},
 		}
 	},
+	nitro: {
+		storage: {
+			db: {
+				driver: 'fs-lite',
+				base: './db'
+			}
+		},
+	},
 	app: {
 		head: {
 			title: 'Магазин Shoppe',
